@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <h1>Image Search Engine</h1>
+    <form id="query-form">
+        <label for="query-type">Select Query Type:</label>
+        <select id="query-type" name="query_type" required>
+            <option value="text">Text</option>
+            <option value="image">Image</option>
+            <option value="hybrid">Hybrid (Text + Image)</option>
+        </select>
+
+        <div id="text-query-section" class="query-section">
+            <label for="text-query">Text Query:</label>
+            <input type="text" id="text-query" name="text_query" placeholder="Enter text here">
+        </div>
+
+        <div id="image-query-section" class="query-section">
+            <label for="image-query">Image Query:</label>
+            <input type="file" id="image-query" name="image_query" accept="image/*">
+        </div>
+
+        <div id="hybrid-query-section" class="query-section">
+            <label for="weight">Text Weight (0.0 to 1.0):</label>
+            <input type="number" id="weight" name="weight" min="0" max="1" step="0.1" value="0.5">
+        </div>
+
+        <div class="query-section">
+            <label for="embedding-type">Embedding Type:</label>
+            <select id="embedding-type" name="embedding_type">
+                <option value="clip">CLIP Embeddings</option>
+                <option value="pca">Principal Components</option>
+            </select>
+            <div id="pca-settings">
+                <label for="components">k:</label>
+                <input type="number" id="components" name="k">
+            </div>
+        </div>
+
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- <div id="results-section" style="display: none;">
+        <h2>Results</h2>
+        <ul id="results-list"></ul>
+    </div> -->
+    <div id="results">
+        <!-- <h2>Results</h2> -->
+        <img id="res1" src="" runat="server" style="display: none;">
+        <img id="res2" src="" style="display: none;">
+        <img id="res3" src="" style="display: none;">
+        <img id="res4" src="" style="display: none;">
+        <img id="res5" src="" style="display: none;">
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
